@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +15,18 @@ public class Tester {
     public static void main(String[] args) {
 //        java8();
 //        java();
+
+        LocalDateTime enter =
+                LocalDateTime.of(2020,7,9,8,0,0);
+        LocalDateTime leave =
+                LocalDateTime.of(2020,7,9,10,0,0);
+
+        Car car = new Car("AA-0001", enter);
+        car.setLeave(leave);
+        System.out.println(car.getDuration());
+        long hours = (long)Math.ceil(car.getDuration()/60.0);
+        System.out.println(hours);
+        System.out.println(30*hours);
     }
 
     private static void java8() {
